@@ -1,15 +1,28 @@
-
-
 function input_button_pushed(){
-    var m = document.getElementById("the_input").value;
+    var ans = document.getElementById("the_input").value;
+
     var para = document.createElement("p");
-    var node = document.createTextNode(m);
-    para.appendChild(node);
 
-    var the_div = document.getElementById("the_div")
+    if (ans in names_to_order){
 
-    the_div.appendChild(para)
+    }
+    else{
+        var node = document.createTextNode(ans);
+        para.appendChild(node);
+        var the_div = document.getElementById("unrec_div")
+        the_div.appendChild(para)
+    }
+}
 
+var names_to_order = {
+    "one" : "number",
+    "two" : "number",
+    "three": "number",
+    "red": "color",
+    "yellow": "color",
+    "a": "letter",
+    "b": "letter",
+    "c": "letter"
 }
 
 alert("script loaded!!")
