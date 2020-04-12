@@ -259,6 +259,21 @@ names_to_order={
 'porcupine':'Rodentia',
 'hutia':'Rodentia',
 'tuco-tuco':'Rodentia',
+'guiara':'Rodentia',
+'coypu':'Rodentia',
+'degu':'Rodentia',
+'coruro':'Rodentia',
+'mole-rat':'Rodentia',
+'jerboa':'Rodentia',
+'hamster':'Rodentia',
+'vole':'Rodentia',
+'akodont':'Rodentia',
+'lemming':'Rodentia',
+'colilargo':'Rodentia',
+'muskrat':'Rodentia',
+'hocicudo':'Rodentia',
+'tapecua':'Rodentia',
+
 
 
 
