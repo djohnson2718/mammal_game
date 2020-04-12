@@ -273,12 +273,20 @@ names_to_order={
 'muskrat':'Rodentia',
 'hocicudo':'Rodentia',
 'tapecua':'Rodentia',
+'ammodile':'Rodentia',
+'gerbil':'Rodentia',
+'antsangy':'Rodentia',
+'dormouse':'Rodentia',
+'zokor':'Rodentia',
+'spalax':'Rodentia',
+'flying squirrel':'Rodentia',
+'prairie dog':'Rodentia',
+'marmot':'Rodentia',
 
+'treeshrew':'Scandentia',
 
+'dugong':'Sirenia',
+'manatee':'Sirenia',
 
-
-
-
-
-
+'aardvark':'Tubulidentata'
 }
