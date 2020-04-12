@@ -32,7 +32,7 @@ function submit_input(){
             number_found = number_found+1;
             updateScore();
             var order_div = document.createElement("p");
-            order_div.innerHTML = `<b>${number_found}. ${order}:</b> <font color="green"> ${ans} (+1)</font>`;
+            order_div.innerHTML = `<span class="tbg"> <b>${number_found}. ${order}:</b> <font color="green"> ${ans} (+1)</font></span>`;
             var results_div = document.getElementById("results_div");
             results_div.prepend(order_div);
             order_to_div[order] = order_div;
@@ -45,7 +45,7 @@ function submit_input(){
             score = score - penalty
             updateScore()
             var order_div = order_to_div[order]
-            order_div.innerHTML = order_div.innerHTML + `,  <font color="red">${ans} (-0.25)</font>`
+            order_div.innerHTML = order_div.innerHTML + `<span class="tbg">,  <font color="red">${ans} (-0.25)</font></span>`
             
             //alert("already used that!")
         }
@@ -74,7 +74,7 @@ function input_keyup(e){
 
 function updateScore(){
     var score_p = document.getElementById("score_p")
-    score_p.textContent = "Score: " + score.toString()
+    score_p.innerHTML = `<span class="tbg">Score: ${score}</span>`
 }
 
 function end_game(){

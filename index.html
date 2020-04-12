@@ -11,7 +11,12 @@
       background-attachment: fixed;  
       background-size: cover;
     }
-    </style>
+    .tbg{
+        background-color: rgba(216, 210, 210, 0.5);  
+    }
+</style>
+
+
 
 
 <body>
@@ -19,14 +24,14 @@
 <script src="the_game.js"> </script>
 
 <div id="rules_div">
-<h1> <span style="background-color: rgba(216, 210, 210, 0.5)">How many mammal orders do you know?</span> </h1>
+<h1> <span class="tbg">How many mammal orders do you know?</span> </h1>
 <p>Here are the rules.</p>
 </div>
 
 <div id="input_div">
     <input type="text" id="the_input" onkeyup="input_keyup(event)"/>
     <button id="input_button" onclick="submit_input()">Submit Answer</button>
-    <p id="score_p"> Score: 0</p>
+    <p id="score_p"> <span class="tbg"> Score: 0 </span></p>
 </div>
 
 <div id="results_div">
@@ -34,7 +39,7 @@
 </div>
 
 <div id="unrec_div">
-    <p id="unrec_p"><b>Unrecognized:</b> </p>
+    <p id="unrec_p"><b><span class="tbg">Unrecognized:</span></b> </p>
 </div>
 
 </body>
