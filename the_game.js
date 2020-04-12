@@ -85,7 +85,7 @@ function end_game(){
 var used = new Set()
 var order_to_div = {}
 
-var names_to_order = {
+/*var names_to_order = {
     "one" : "number",
     "two" : "number",
     "three": "number",
@@ -94,6 +94,6 @@ var names_to_order = {
     "a": "letter",
     "b": "letter",
     "c": "letter"
-}
+}*/
 
 //alert("script loaded!!")
