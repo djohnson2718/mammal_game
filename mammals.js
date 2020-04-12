@@ -220,6 +220,48 @@ names_to_order={
 'sloth':"Pilosa",
 
 'monkey':'Primates',
+'mangabey':'Primates',
+'mandrill':'Primates',
+'baboon':'Primates',
+'colobus':'Primates',
+'langur':'Primates',
+'gorilla':'Primates',
+'human':'Primates',
+'chimpanzee':'Primates',
+'orangatan':'Primates',
+'gibbon':'Primates',
+'marmoset':'Primates',
+'tamarin':'Primates',
+'tarsier':'Primates',
+"lemur":'Primates',
+'bushbaby':'Primates',
+'galago':'Primates',
+'loris':'Primates',
+'potto':'Primates',
+
+'elephant':'Proboscidea',
+
+'squirrel':'Rodentia',
+'mouse':'Rodentia',
+'scaly-tail':'Rodentia',
+'beaver':'Rodentia',
+'gopher':'Rodentia',
+'rat':'Rodentia',
+'gundi':'Rodentia',
+'pectinator':'Rodentia',
+'guinea pig':'Rodentia',
+'cavy':'Rodentia',
+'paca':'Rodentia',
+'agouti':'Rodentia',
+'acouchi':'Rodentia',
+'chinchilla':'Rodentia',
+'pacarana':'Rodentia',
+'porcupine':'Rodentia',
+'hutia':'Rodentia',
+'tuco-tuco':'Rodentia',
+
+
+
 
 
 
