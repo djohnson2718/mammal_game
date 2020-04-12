@@ -1,7 +1,7 @@
 var score = 0;
 var number_found = 0;
 const penalty = 0.25;
-var had_unrec_input = false;
+//var had_unrec_input = false;
 var game_over = false;
 const num_orders = 28; //update this!
 
@@ -9,22 +9,23 @@ function submit_input(){
     if (game_over) return;
 
     var the_input = document.getElementById("the_input");
+    var message_div = document.getElementById("message_div");
     var ans = the_input.value;
-    the_input.value = "";
+    
 
     
 
     if (used.has(ans))
     {
-        alert("already tried that")
-        return
+        message_div.innerHTML = `<span class="tbg"> You have already entered that: Order ${names_to_order[ans]}</span>`;
+        the_input.value = "";
+        the_input.focus;
+        return;
     }
-
-    used.add(ans)
-
-    var para = document.createElement("p");
+    //var para = document.createElement("p");
 
     if (ans in names_to_order){
+        used.add(ans)
         var order = names_to_order[ans]
         if (!(order in order_to_div)){
             //order_to_done[order] = true
@@ -37,6 +38,8 @@ function submit_input(){
             results_div.prepend(order_div);
             order_to_div[order] = order_div;
 
+            message_div.innerHTML = `<span class="tbg">New Order found!</span>`;
+
             if (number_found >= num_orders){
                 end_game()
             }
@@ -47,23 +50,15 @@ function submit_input(){
             var order_div = order_to_div[order]
             order_div.innerHTML = order_div.innerHTML + `<span class="tbg">,  <font color="red">${ans} (-0.25)</font></span>`
             
-            //alert("already used that!")
+            message_div.innerHTML = `<span class="tbg">Oops, ${ans} is in ${order}.</span>`;
         }
+        the_input.value = "";
     }
     else{
-        var node;
-        if (had_unrec_input){
-            node = document.createTextNode(", " +ans);
-        }
-        else{
-            node = document.createTextNode(ans);
-            had_unrec_input = true;
-        }
-        var unrec_p = document.getElementById("unrec_p")
-        unrec_p.appendChild(node);
-        //var the_div = document.getElementById("unrec_div")
-        //the_div.appendChild(para)
+        message_div.innerHTML =  `<span class="tbg">Input not recognized.</span>`;
     }
+
+
 
     the_input.focus()
 }
@@ -79,7 +74,19 @@ function updateScore(){
 
 function end_game(){
     game_over = true
-    alert("Game over!")
+    var message_div = document.getElementById("message_div");
+    message_div.innerHTML = `<span class="tbg">Game over!</span>`;
+
+    document.getElementById("done_button").disabled = "true";
+    document.getElementById("show_answers_button").style.display="inline";
+}
+
+function done_clicked(){
+    end_game(); 
+}
+
+function show_answers(){
+    //TODO
 }
 
 var used = new Set()
@@ -336,6 +343,7 @@ names_to_order={
     'galago':'Primates',
     'loris':'Primates',
     'potto':'Primates',
+    'ape':'Primates',
     
     'elephant':'Proboscidea',
     
