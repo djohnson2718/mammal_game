@@ -142,6 +142,84 @@ names_to_order={
 'armadilo':'Cingulata',
 
 'marsupial mice':'Dasyuromorphia',
+'pouched mice':'Dasyuromorphia',
+'mulgara':'Dasyuromorphia',
+'kaluta':'Dasyuromorphia',
+'kowari':'Dasyuromorphia',
+'quoll':'Dasyuromorphia',
+'dasyure':'Dasyuromorphia',
+'ningauis':'Dasyuromorphia',
+'dibbler':'Dasyuromorphia',
+'phascogales':'Dasyuromorphia',
+'wambenger':'Dasyuromorphia',
+'marsupial shrew':'Dasyuromorphia',
+'planigale':'Dasyuromorphia',
+'tasmanian devil':'Dasyuromorphia',
+'dunnart':'Dasyuromorphia',
+'numbat':'Dasyuromorphia',
+
+'colugo':'Dermoptera',
+'flying lemur':'Dermoptera',
+
+'opossum':'Didelphimorphia',
+
+'wombat':'Diprotodontia',
+'koala':'Diprotodontia',
+'cuscus':'Diprotodontia',
+'possum':'Diprotodontia',
+'glider':'Diprotodontia',
+'kangaroo':'Diprotodontia',
+'wallaby':'Diprotodontia',
+'wallaroo':'Diprotodontia',
+'quokka':'Diprotodontia',
+'pademelon':'Diprotodontia',
+'bettong':'Diprotodontia',
+'potoroo':'Diprotodontia',
+'rat-kargaroo':'Diprotodontia',
+'tree-kangaroo':'Diprotodontia',
+
+'hedgehog':'Eulipotyphla',
+'moonrat':'Eulipotyphla',
+'gymnure':'Eulipotyphla',
+'shrew':'Eulipotyphla',
+'mole':'Eulipotyphla',
+'desman':'Eulipotyphla',
+'solenodon':'Eulipotyphla',
+
+'hyrax':'Hyracoidea',
+
+'rabbit':'Lagomorpha',
+'hare':'Lagomorpha',
+'pika':'Lagomorpha',
+
+'elephant shrew':'Macroscelidea',
+
+'monito del monte':'Microbiotheria',
+
+'platypus':'Monotremata',
+'echidna':'Monotremata',
+
+'marsupial mole':'Notoryctemorphia',
+
+'shrew opossum':'Paucituberculata',
+'caenoldestid':'Paucituberculata',
+
+'bandicoot':'Peramelemorphia',
+'bilbie':'Peramelemorphia',
+
+'horse':'Perissodactyla',
+'zebra':'Perissodactyla',
+'donkey':'Perissodactyla',
+'rhinoceros':'Perissodactyla',
+'rhino':'Perissodactyla',
+'tapir':'Perissodactyla',
+
+'pangolin':'Pholidota',
+
+'anteater':"Pilosa",
+'sloth':"Pilosa",
+
+'monkey':'Primates',
 
 
 
