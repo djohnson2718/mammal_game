@@ -26,17 +26,17 @@ function submit_input(){
 
     if (ans in names_to_order){
         used.add(ans)
-        var order = names_to_order[ans]
+        var order = orders[names_to_order[ans]]
         if (!(order in order_to_div)){
             //order_to_done[order] = true
             score = score + 1;
             number_found = number_found+1;
             updateScore();
             var order_div = document.createElement("p");
-            order_div.innerHTML = `<span class="tbg"> <b>${number_found}. ${order}:</b> <font color="green"> ${ans} (+1)</font></span>`;
+            order_div.innerHTML = `<span class="tbg"> <b>${number_found}. ${order.name}:</b> <font color="green"> ${ans} (+1)</font></span>`;
             var results_div = document.getElementById("results_div");
             results_div.prepend(order_div);
-            order_to_div[order] = order_div;
+            order_to_div[order.name] = order_div;
 
             message_div.innerHTML = `<span class="tbg">New Order found!</span>`;
 
@@ -49,7 +49,7 @@ function submit_input(){
         else{
             score = score - penalty
             updateScore()
-            var order_div = order_to_div[order]
+            var order_div = order_to_div[order.name]
             order_div.innerHTML = order_div.innerHTML + `<span class="tbg">,  <font color="red">${ans} (-0.25)</font></span>`
             
             message_div.innerHTML = `<span class="tbg">Oops, ${ans} is in ${order}.</span>`;
@@ -87,10 +87,10 @@ function end_game(){
 
 function set_pic(order){
     //alert("About to set pic: " +order+ " " + order_to_pic[order]);
-    document.body.style.backgroundImage= "url(" + order_to_pic[order] +")";
+    document.body.style.backgroundImage= "url(pics/" + order.pic_file +")";
     //document.body.style.backgroundImage = "url(pics/Lowland_streaked tenrec.jpg)";
     //alert(document.body.style.backgroundImage);
-    document.getElementById("image_credit_div").innerHTML = `<span class="tbg"> Image: ${order_to_pic[order]}, ${order_to_pic_attr[order]}</span>`;
+    document.getElementById("image_credit_div").innerHTML = `<span class="tbg"> Image: ${order.pic_name}, ${order.pic_attr}</span>`;
 }
 
 function done_clicked(){
@@ -115,21 +115,41 @@ var order_to_div = {}
     "c": "letter"
 }*/
 
-order_to_pic={
-    "Afrosoricida":
-    ['Lowland_streaked_tenrec.jpg',
-     'Lowland streaked tenrec',
-     'By <a rel="nofollow" class="external text" href="https://www.flickr.com/people/42244964@N03">Frank Vassen</a> - <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a>: <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/42244964@N03/4315247601">Lowland Streaked Tenrec, Mantadia, Madagascar</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=14465335">Link</a>'
-    ],
-
-    "Macroscelidea":"pics/Black_and_Rufous_Elephant_Shrew.jpg",
-    "Artiodactyla":'pics/Okapi.jpg'
-
+class Order {
+    constructor(name, descr, pic_name, pic_file, pic_attr){
+        this.name = name;
+        this.descr = descr;
+        this.pic_name = pic_name;
+        this.pic_file = pic_file;
+        this.pic_attr = pic_attr;
+    }
 }
-order_to_pic_attr={
-    "Macroscelidea":'By Joey Makalintal from Pennsylvania, USA - A Fascinating One, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=5817138',
-    "Artiodactyla":'By Daniel Jolivet - <a rel="nofollow" class="external free" href="https://www.flickr.com/photos/sybarite48/7973333500/">https://www.flickr.com/photos/sybarite48/7973333500/</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=65399174">Link</a>'
+
+orders ={
+    "Afrosoricida": new Order("Afrosoricida",
+    "African golden moles, tenrecs, and otter shrews.",
+    'Lowland streaked tenrec',
+    'Lowland_streaked_tenrec.jpg',
+    'By <a rel="nofollow" class="external text" href="https://www.flickr.com/people/42244964@N03">Frank Vassen</a> - <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a>: <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/42244964@N03/4315247601">Lowland Streaked Tenrec, Mantadia, Madagascar</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=14465335">Link</a>'
+    ),
+
+    "Artiodactyla" : new Order("Artiodactyla",
+    "A large order of hoofed mammals, the even-toed ungulates.",
+    "Okapi",
+    'Okapi.jpg',
+    'By Daniel Jolivet - <a rel="nofollow" class="external free" href="https://www.flickr.com/photos/sybarite48/7973333500/">https://www.flickr.com/photos/sybarite48/7973333500/</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=65399174">Link</a>'
+    ),
+
+    "Macroscelidea" : new Order("Macroscelidea",
+    "Elephant Shrews.",
+    "Black and Rufous Elephant Shrew",
+    "Black_and_Rufous_Elephant_Shrew.jpg",
+    'By <a rel="nofollow" class="external text" href="https://www.flickr.com/people/7384852@N06">Joey Makalintal</a> from Pennsylvania, USA - <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/7384852@N06/2836615665/">A Fascinating One</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=5817138">Link</a>'
+    )
+
+    
 }
+
 
 names_to_order={ 
     "tenrec": "Afrosoricida",
