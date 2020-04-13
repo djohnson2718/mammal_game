@@ -27,13 +27,13 @@ function submit_input(){
     if (ans in names_to_order){
         used.add(ans);
         var order = names_to_order[ans];
-        if (!(order in order_to_div)){
+        if (!(order.name in order_to_div)){
             //order_to_done[order] = true
             score = score + 1;
             number_found = number_found+1;
             updateScore();
             var order_div = document.createElement("p");
-            order_div.innerHTML = `<span class="tbg"> <b>${number_found}. ${order.name}:</b> <font color="green"> ${ans} (+1)</font></span>`;
+            order_div.innerHTML = `<span class="tbg"> <div class="tooltip"><b>${number_found}. ${order.name}: </b><span class="tooltiptext"> ${order.descr}</span></div> <font color="green"> ${ans} (+1)</font></span>`;
             var results_div = document.getElementById("results_div");
             results_div.prepend(order_div);
             order_to_div[order.name] = order_div;
@@ -52,7 +52,7 @@ function submit_input(){
             var order_div = order_to_div[order.name]
             order_div.innerHTML = order_div.innerHTML + `<span class="tbg">,  <font color="red">${ans} (-0.25)</font></span>`
             
-            message_div.innerHTML = `<span class="tbg">Oops, ${ans} is in ${order}.</span>`;
+            message_div.innerHTML = `<span class="tbg">Oops, ${ans} is in ${order.name}.</span>`;
 
             set_pic(order);
         }
@@ -136,46 +136,46 @@ order_list = [
     ['chevrotain', 'deer', 'moose', 'caribou', 'borckets', 'huemel', 'pudu', 'muntijac', 'bison', 'cattle', 'cow', 'buffalo', 'saola', 'nilgai', 'chowsingha', 'bushbuck', 'bongo', 'nyala', 'kudu', 'sitatunga', 'eland', 'impala', 'hartebeest', 'wildebeest', 'topi', 'bontebok', 'hirola', 'antelope', 'grysbok', 'steenbok', 'springbok', 'dibatag', 'gerenuk', 'saiga', 'blackbuck', 'gazelle', 'beira', 'dik-dik', 'oribi', 'klipspringer', 'chiru', 'takin', 'sheep', 'tahr', 'goat', 'ibex', 'chamois', 'goral', 'serows', 'muskox', 'duiker', 'addax', 'oryz', 'reedbuck', 'kob', 'lechwe', 'waterbuck', 'rhebok', 'pronghorn', 'giraffe', 'okapi', 'pig', 'warthog', 'bushpig', 'hog', 'peccary', 'camel', 'guanaco', 'vicuna', 'lama', 'alpaca', 'hippopotamus', 'hippo']),
 
     new Order('Carnivora',
-    'desc',
-    'pic_name',
-    'pic_file',
-    'pic_attr',
+    '16 families of mostly carnivorous and omnivorous mammals found worldwide.',
+    'Small Indian Civet',
+    'Civet.jpg',
+    'By <a href="//en.wikipedia.org/w/index.php?title=User:Rejaul_karim.rk&amp;action=edit&amp;redlink=1" class="new" title="User:Rejaul karim.rk (page does not exist)">Rejaul karim.rk</a> - Own work, <a href="https://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons Attribution-ShareAlike 4.0">CC BY-SA 4.0</a>, <a href="https://en.wikipedia.org/w/index.php?curid=54285813">Link</a>',
     ['dog', 'wolf', 'dhole', 'fox', 'bear', 'panda', 'raccoon', 'coati', 'kinkajou', 'olingo', 'ringtail', 'skunk', 'badger', 'weasel', 'otter', 'wolverine', 'tayra', 'marten', 'grison', 'polecat', 'mink', 'walrus', 'seal', 'sea lion', 'civet', 'cat', 'leopard', 'lion', 'tiger', 'jaguar', 'snow leopard', 'puma', 'jaguarundi', 'cougar', 'cheetah', 'lynx', 'serval', 'linsang', 'oyan', 'genet', 'binturong', 'hyena', 'aardwolf', 'mongoose', 'cusimanse', 'meerkat', 'fossa', 'falanouc', 'vontsira', 
 'boky']),
 
     new Order('Cetacea',
-    'desc',
-    'pic_name',
-    'pic_file',
-    'pic_attr',
-    ['whale', 'dolphin', 'narwhal', 'beluga', 'porpoise']),
+    'Whales and dolphins.',
+    'Orca',
+    'Killerwhales_jumping.jpg',
+    'By Robert Pittman - NOAA (http://www.afsc.noaa.gov/Quarterly/amj2005/divrptsNMML3.htm]), Public Domain, https://commons.wikimedia.org/w/index.php?curid=1433661',
+    ['whale', 'dolphin', 'narwhal', 'beluga', 'porpoise','orca']),
 
     new Order('Chiroptera',
-    'desc',
-    'pic_name',
-    'pic_file',
-    'pic_attr',
+    'Bats.',
+    'Carollia brevicauda',
+    'bat.jpg',
+    'By <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/diegolizcano/">Diego Lizcano</a> - <a rel="nofollow" class="external free" href="https://www.flickr.com/photos/diegolizcano/239275294/">https://www.flickr.com/photos/diegolizcano/239275294/</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=11942797">Link</a>',
     ['bat', 'flying fox']),
 
     new Order('Cingulata',
-    'desc',
-    'pic_name',
-    'pic_file',
-    'pic_attr',
-    ['armadilo']),
+    'Armadillos.',
+    'Pink fairy armadillo.',
+    'arm.jfif',
+    'By Daderot - Own work, CC0, https://commons.wikimedia.org/w/index.php?curid=21664472',
+    ['armadillo']),
 
     new Order('Dasyuromorphia',
-    'desc',
-    'pic_name',
-    'pic_file',
-    'pic_attr',
+    'Most of the Australian carnivorous marsupials.',
+    'Tasmanian Devil',
+    'tasdevil.jpg',
+    'By Wayne McLean (jgritz) Taken with Nikon D100. - Own work, CC BY-SA 2.5, https://commons.wikimedia.org/w/index.php?curid=496088',
     ['marsupial mice', 'pouched mice', 'mulgara', 'kaluta', 'kowari', 'quoll', 'dasyure', 'ningauis', 'dibbler', 'phascogales', 'wambenger', 'marsupial shrew', 'planigale', 'tasmanian devil', 'dunnart', 'numbat']),
 
     new Order('Dermoptera',
-    'desc',
-    'pic_name',
-    'pic_file',
-    'pic_attr',
+    'Cololgos (flying lemurs).',
+    'Colugo',
+    'Colugo.jpg',
+    'By Lip Kee Yap. - Flickr: Colugo., CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=7627076',
     ['colugo', 'flying lemur']),
 
     new Order('Didelphimorphia',
