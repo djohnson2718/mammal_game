@@ -3,7 +3,7 @@ var number_found = 0;
 const penalty = 0.25;
 //var had_unrec_input = false;
 var game_over = false;
-const num_orders = 28; //update this!
+
 
 function submit_input(){
     if (game_over) return;
@@ -25,8 +25,8 @@ function submit_input(){
     //var para = document.createElement("p");
 
     if (ans in names_to_order){
-        used.add(ans)
-        var order = orders[names_to_order[ans]]
+        used.add(ans);
+        var order = names_to_order[ans];
         if (!(order in order_to_div)){
             //order_to_done[order] = true
             score = score + 1;
@@ -103,344 +103,220 @@ function show_answers(){
 
 var used = new Set()
 var order_to_div = {}
-
-/*var names_to_order = {
-    "one" : "number",
-    "two" : "number",
-    "three": "number",
-    "red": "color",
-    "yellow": "color",
-    "a": "letter",
-    "b": "letter",
-    "c": "letter"
-}*/
+var names_to_order = {}
 
 class Order {
-    constructor(name, descr, pic_name, pic_file, pic_attr){
+    constructor(name, descr, pic_name, pic_file, pic_attr, members){
         this.name = name;
         this.descr = descr;
         this.pic_name = pic_name;
         this.pic_file = pic_file;
         this.pic_attr = pic_attr;
+        this.members = members;
+        var index;
+        for (index = 0; index < members.length; ++index){
+            names_to_order[members[index]] = this;
+        }
     }
 }
 
-orders ={
-    "Afrosoricida": new Order("Afrosoricida",
+order_list = [
+    new Order("Afrosoricida",
     "African golden moles, tenrecs, and otter shrews.",
     'Lowland streaked tenrec',
     'Lowland_streaked_tenrec.jpg',
-    'By <a rel="nofollow" class="external text" href="https://www.flickr.com/people/42244964@N03">Frank Vassen</a> - <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a>: <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/42244964@N03/4315247601">Lowland Streaked Tenrec, Mantadia, Madagascar</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=14465335">Link</a>'
-    ),
+    'By <a rel="nofollow" class="external text" href="https://www.flickr.com/people/42244964@N03">Frank Vassen</a> - <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a>: <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/42244964@N03/4315247601">Lowland Streaked Tenrec, Mantadia, Madagascar</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=14465335">Link</a>',
+    ['tenrec', 'otter shrew', 'golden mole']),
 
-    "Artiodactyla" : new Order("Artiodactyla",
+    new Order("Artiodactyla",
     "A large order of hoofed mammals, the even-toed ungulates.",
     "Okapi",
     'Okapi.jpg',
-    'By Daniel Jolivet - <a rel="nofollow" class="external free" href="https://www.flickr.com/photos/sybarite48/7973333500/">https://www.flickr.com/photos/sybarite48/7973333500/</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=65399174">Link</a>'
-    ),
+    'By Daniel Jolivet - <a rel="nofollow" class="external free" href="https://www.flickr.com/photos/sybarite48/7973333500/">https://www.flickr.com/photos/sybarite48/7973333500/</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=65399174">Link</a>',    
+    ['chevrotain', 'deer', 'moose', 'caribou', 'borckets', 'huemel', 'pudu', 'muntijac', 'bison', 'cattle', 'cow', 'buffalo', 'saola', 'nilgai', 'chowsingha', 'bushbuck', 'bongo', 'nyala', 'kudu', 'sitatunga', 'eland', 'impala', 'hartebeest', 'wildebeest', 'topi', 'bontebok', 'hirola', 'antelope', 'grysbok', 'steenbok', 'springbok', 'dibatag', 'gerenuk', 'saiga', 'blackbuck', 'gazelle', 'beira', 'dik-dik', 'oribi', 'klipspringer', 'chiru', 'takin', 'sheep', 'tahr', 'goat', 'ibex', 'chamois', 'goral', 'serows', 'muskox', 'duiker', 'addax', 'oryz', 'reedbuck', 'kob', 'lechwe', 'waterbuck', 'rhebok', 'pronghorn', 'giraffe', 'okapi', 'pig', 'warthog', 'bushpig', 'hog', 'peccary', 'camel', 'guanaco', 'vicuna', 'lama', 'alpaca', 'hippopotamus', 'hippo']),
 
-    "Macroscelidea" : new Order("Macroscelidea",
+    new Order('Carnivora',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['dog', 'wolf', 'dhole', 'fox', 'bear', 'panda', 'raccoon', 'coati', 'kinkajou', 'olingo', 'ringtail', 'skunk', 'badger', 'weasel', 'otter', 'wolverine', 'tayra', 'marten', 'grison', 'polecat', 'mink', 'walrus', 'seal', 'sea lion', 'civet', 'cat', 'leopard', 'lion', 'tiger', 'jaguar', 'snow leopard', 'puma', 'jaguarundi', 'cougar', 'cheetah', 'lynx', 'serval', 'linsang', 'oyan', 'genet', 'binturong', 'hyena', 'aardwolf', 'mongoose', 'cusimanse', 'meerkat', 'fossa', 'falanouc', 'vontsira', 
+'boky']),
+
+    new Order('Cetacea',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['whale', 'dolphin', 'narwhal', 'beluga', 'porpoise']),
+
+    new Order('Chiroptera',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['bat', 'flying fox']),
+
+    new Order('Cingulata',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['armadilo']),
+
+    new Order('Dasyuromorphia',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['marsupial mice', 'pouched mice', 'mulgara', 'kaluta', 'kowari', 'quoll', 'dasyure', 'ningauis', 'dibbler', 'phascogales', 'wambenger', 'marsupial shrew', 'planigale', 'tasmanian devil', 'dunnart', 'numbat']),
+
+    new Order('Dermoptera',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['colugo', 'flying lemur']),
+
+    new Order('Didelphimorphia',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['opossum']),
+
+    new Order('Diprotodontia',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['wombat', 'koala', 'cuscus', 'possum', 'glider', 'kangaroo', 'wallaby', 'wallaroo', 'quokka', 'pademelon', 'bettong', 'potoroo', 'rat-kargaroo', 'tree-kangaroo']),
+
+    new Order('Eulipotyphla',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['hedgehog', 'moonrat', 'gymnure', 'shrew', 'mole', 'desman', 'solenodon']),
+
+    new Order('Hyracoidea',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['hyrax']),
+
+    new Order('Lagomorpha',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['rabbit', 'hare', 'pika']),
+
+    new Order("Macroscelidea",
     "Elephant Shrews.",
     "Black and Rufous Elephant Shrew",
     "Black_and_Rufous_Elephant_Shrew.jpg",
-    'By <a rel="nofollow" class="external text" href="https://www.flickr.com/people/7384852@N06">Joey Makalintal</a> from Pennsylvania, USA - <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/7384852@N06/2836615665/">A Fascinating One</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=5817138">Link</a>'
-    )
+    'By <a rel="nofollow" class="external text" href="https://www.flickr.com/people/7384852@N06">Joey Makalintal</a> from Pennsylvania, USA - <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/7384852@N06/2836615665/">A Fascinating One</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=5817138">Link</a>',
+    ['elephant shrew']),
 
-    
-}
+    new Order('Microbiotheria',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['monito del monte']),
 
+    new Order('Monotremata',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['platypus', 'echidna']),
 
-names_to_order={ 
-    "tenrec": "Afrosoricida",
-    "otter shrew":"Afrosoricida",
-    "golden mole":"Afrosoricida",
-    
-    "chevrotain":"Artiodactyla",
-    "deer":"Artiodactyla",
-    "moose":"Artiodactyla",
-    "caribou":"Artiodactyla",
-    "borckets":"Artiodactyla",
-    "huemel":"Artiodactyla",
-    "pudu":"Artiodactyla",
-    "muntijac":"Artiodactyla",
-    "bison":"Artiodactyla",
-    "cattle":"Artiodactyla",
-    "cow":"Artiodactyla",
-    "buffalo":"Artiodactyla",
-    "saola":"Artiodactyla",
-    "nilgai":"Artiodactyla",
-    "chowsingha":"Artiodactyla",
-    "bushbuck":"Artiodactyla",
-    "bongo":"Artiodactyla",
-    "nyala":"Artiodactyla",
-    "kudu":"Artiodactyla",
-    "sitatunga":"Artiodactyla",
-    "eland":"Artiodactyla",
-    "impala":"Artiodactyla",
-    "hartebeest":"Artiodactyla",
-    "wildebeest":"Artiodactyla",
-    "topi":"Artiodactyla",
-    "bontebok":"Artiodactyla",
-    "hirola":"Artiodactyla",
-    "antelope":"Artiodactyla",
-    "grysbok":"Artiodactyla",
-    "steenbok":"Artiodactyla",
-    "springbok":"Artiodactyla",
-    "dibatag":"Artiodactyla",
-    "gerenuk":"Artiodactyla",
-    "saiga":"Artiodactyla",
-    "blackbuck":"Artiodactyla",
-    "gazelle":"Artiodactyla",
-    "beira":"Artiodactyla",
-    "dik-dik":"Artiodactyla",
-    "oribi":"Artiodactyla",
-    "klipspringer":"Artiodactyla",
-    "chiru":"Artiodactyla",
-    "takin":"Artiodactyla",
-    "sheep":"Artiodactyla",
-    "tahr":"Artiodactyla",
-    "goat":"Artiodactyla",
-    "ibex":"Artiodactyla",
-    "chamois":"Artiodactyla",
-    "goral":"Artiodactyla",
-    "serows":"Artiodactyla",
-    "muskox":"Artiodactyla",
-    "duiker":"Artiodactyla",
-    "antelope":"Artiodactyla",
-    "addax":"Artiodactyla",
-    "oryz":"Artiodactyla",
-    "reedbuck":"Artiodactyla",
-    "kob":"Artiodactyla",
-    "lechwe":"Artiodactyla",
-    "waterbuck":"Artiodactyla",
-    "rhebok":"Artiodactyla",
-    "pronghorn":"Artiodactyla",
-    "giraffe":"Artiodactyla",
-    "okapi":"Artiodactyla",
-    "pig":"Artiodactyla",
-    "warthog":"Artiodactyla",
-    "bushpig":"Artiodactyla",
-    "hog":"Artiodactyla",
-    "peccary":"Artiodactyla",
-    "camel":"Artiodactyla",
-    "guanaco":"Artiodactyla",
-    "vicuna":"Artiodactyla",
-    "lama":"Artiodactyla",
-    "alpaca":"Artiodactyla",
-    "hippopotamus":"Artiodactyla",
-    "hippo":"Artiodactyla",
-    
-    "dog":"Carnivora",
-    "wolf":"Carnivora",
-    "dhole":"Carnivora",
-    "fox":"Carnivora",
-    "bear":"Carnivora",
-    "panda":"Carnivora",
-    "raccoon":"Carnivora",
-    "coati":"Carnivora",
-    "kinkajou":"Carnivora",
-    "olingo":"Carnivora",
-    "ringtail":"Carnivora",
-    "skunk":"Carnivora",
-    "badger":"Carnivora",
-    "weasel":"Carnivora",
-    "otter":"Carnivora",
-    "wolverine":"Carnivora",
-    "tayra":"Carnivora",
-    "marten":"Carnivora",
-    "grison":"Carnivora",
-    "polecat":"Carnivora",
-    'mink':"Carnivora",
-    'walrus':"Carnivora",
-    'seal':"Carnivora",
-    'sea lion':"Carnivora",
-    'civet':"Carnivora",
-    'cat':"Carnivora",
-    'leopard':"Carnivora",
-    'lion':"Carnivora",
-    'tiger':"Carnivora",
-    'jaguar':"Carnivora",
-    'snow leopard':"Carnivora",
-    'puma':"Carnivora",
-    "jaguarundi":"Carnivora",
-    'cougar':"Carnivora",
-    'cheetah':"Carnivora",
-    "lynx":"Carnivora",
-    'serval':"Carnivora",
-    'linsang':"Carnivora",
-    'civet':"Carnivora",
-    'oyan':"Carnivora",
-    'genet':"Carnivora",
-    'binturong':"Carnivora",
-    'hyena':"Carnivora",
-    'aardwolf':"Carnivora",
-    'mongoose':"Carnivora",
-    'cusimanse':"Carnivora",
-    'meerkat':"Carnivora",
-    'fossa':"Carnivora",
-    'falanouc':"Carnivora",
-    'vontsira':"Carnivora",
-    'boky':"Carnivora",
-    
-    'whale':"Cetacea",
-    'dolphin':"Cetacea",
-    'narwhal':"Cetacea",
-    'beluga':"Cetacea",
-    'porpoise':"Cetacea",
-    
-    'bat':'Chiroptera',
-    'flying fox':'Chiroptera',
-    
-    'armadilo':'Cingulata',
-    
-    'marsupial mice':'Dasyuromorphia',
-    'pouched mice':'Dasyuromorphia',
-    'mulgara':'Dasyuromorphia',
-    'kaluta':'Dasyuromorphia',
-    'kowari':'Dasyuromorphia',
-    'quoll':'Dasyuromorphia',
-    'dasyure':'Dasyuromorphia',
-    'ningauis':'Dasyuromorphia',
-    'dibbler':'Dasyuromorphia',
-    'phascogales':'Dasyuromorphia',
-    'wambenger':'Dasyuromorphia',
-    'marsupial shrew':'Dasyuromorphia',
-    'planigale':'Dasyuromorphia',
-    'tasmanian devil':'Dasyuromorphia',
-    'dunnart':'Dasyuromorphia',
-    'numbat':'Dasyuromorphia',
-    
-    'colugo':'Dermoptera',
-    'flying lemur':'Dermoptera',
-    
-    'opossum':'Didelphimorphia',
-    
-    'wombat':'Diprotodontia',
-    'koala':'Diprotodontia',
-    'cuscus':'Diprotodontia',
-    'possum':'Diprotodontia',
-    'glider':'Diprotodontia',
-    'kangaroo':'Diprotodontia',
-    'wallaby':'Diprotodontia',
-    'wallaroo':'Diprotodontia',
-    'quokka':'Diprotodontia',
-    'pademelon':'Diprotodontia',
-    'bettong':'Diprotodontia',
-    'potoroo':'Diprotodontia',
-    'rat-kargaroo':'Diprotodontia',
-    'tree-kangaroo':'Diprotodontia',
-    
-    'hedgehog':'Eulipotyphla',
-    'moonrat':'Eulipotyphla',
-    'gymnure':'Eulipotyphla',
-    'shrew':'Eulipotyphla',
-    'mole':'Eulipotyphla',
-    'desman':'Eulipotyphla',
-    'solenodon':'Eulipotyphla',
-    
-    'hyrax':'Hyracoidea',
-    
-    'rabbit':'Lagomorpha',
-    'hare':'Lagomorpha',
-    'pika':'Lagomorpha',
-    
-    'elephant shrew':'Macroscelidea',
-    
-    'monito del monte':'Microbiotheria',
-    
-    'platypus':'Monotremata',
-    'echidna':'Monotremata',
-    
-    'marsupial mole':'Notoryctemorphia',
-    
-    'shrew opossum':'Paucituberculata',
-    'caenoldestid':'Paucituberculata',
-    
-    'bandicoot':'Peramelemorphia',
-    'bilbie':'Peramelemorphia',
-    
-    'horse':'Perissodactyla',
-    'zebra':'Perissodactyla',
-    'donkey':'Perissodactyla',
-    'rhinoceros':'Perissodactyla',
-    'rhino':'Perissodactyla',
-    'tapir':'Perissodactyla',
-    
-    'pangolin':'Pholidota',
-    
-    'anteater':"Pilosa",
-    'sloth':"Pilosa",
-    
-    'monkey':'Primates',
-    'mangabey':'Primates',
-    'mandrill':'Primates',
-    'baboon':'Primates',
-    'colobus':'Primates',
-    'langur':'Primates',
-    'gorilla':'Primates',
-    'human':'Primates',
-    'chimpanzee':'Primates',
-    'orangatan':'Primates',
-    'gibbon':'Primates',
-    'marmoset':'Primates',
-    'tamarin':'Primates',
-    'tarsier':'Primates',
-    "lemur":'Primates',
-    'bushbaby':'Primates',
-    'galago':'Primates',
-    'loris':'Primates',
-    'potto':'Primates',
-    'ape':'Primates',
-    
-    'elephant':'Proboscidea',
-    
-    'squirrel':'Rodentia',
-    'mouse':'Rodentia',
-    'scaly-tail':'Rodentia',
-    'beaver':'Rodentia',
-    'gopher':'Rodentia',
-    'rat':'Rodentia',
-    'gundi':'Rodentia',
-    'pectinator':'Rodentia',
-    'guinea pig':'Rodentia',
-    'cavy':'Rodentia',
-    'paca':'Rodentia',
-    'agouti':'Rodentia',
-    'acouchi':'Rodentia',
-    'chinchilla':'Rodentia',
-    'pacarana':'Rodentia',
-    'porcupine':'Rodentia',
-    'hutia':'Rodentia',
-    'tuco-tuco':'Rodentia',
-    'guiara':'Rodentia',
-    'coypu':'Rodentia',
-    'degu':'Rodentia',
-    'coruro':'Rodentia',
-    'mole-rat':'Rodentia',
-    'jerboa':'Rodentia',
-    'hamster':'Rodentia',
-    'vole':'Rodentia',
-    'akodont':'Rodentia',
-    'lemming':'Rodentia',
-    'colilargo':'Rodentia',
-    'muskrat':'Rodentia',
-    'hocicudo':'Rodentia',
-    'tapecua':'Rodentia',
-    'ammodile':'Rodentia',
-    'gerbil':'Rodentia',
-    'antsangy':'Rodentia',
-    'dormouse':'Rodentia',
-    'zokor':'Rodentia',
-    'spalax':'Rodentia',
-    'flying squirrel':'Rodentia',
-    'prairie dog':'Rodentia',
-    'marmot':'Rodentia',
-    
-    'treeshrew':'Scandentia',
-    
-    'dugong':'Sirenia',
-    'manatee':'Sirenia',
-    
-    'aardvark':'Tubulidentata'
-    }
+    new Order('Notoryctemorphia',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['marsupial mole']),
+
+    new Order('Paucituberculata',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['shrew opossum', 'caenoldestid']),
+
+    new Order('Peramelemorphia',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['bandicoot', 'bilbie']),
+
+    new Order('Perissodactyla',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['horse', 'zebra', 'donkey', 'rhinoceros', 'rhino', 'tapir']),
+
+    new Order('Pholidota',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['pangolin']),
+
+    new Order('Pilosa',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['anteater', 'sloth']),
+
+    new Order('Primates',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['monkey', 'mangabey', 'mandrill', 'baboon', 'colobus', 'langur', 'gorilla', 'human', 'chimpanzee', 'orangatan', 'gibbon', 'marmoset', 'tamarin', 'tarsier', 'lemur', 'bushbaby', 'galago', 'loris', 'potto']),
+
+    new Order('Proboscidea',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['elephant']),
+
+    new Order('Rodentia',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['squirrel', 'mouse', 'scaly-tail', 'beaver', 'gopher', 'rat', 'gundi', 'pectinator', 'guinea pig', 'cavy', 'paca', 'agouti', 'acouchi', 'chinchilla', 'pacarana', 'porcupine', 'hutia', 'tuco-tuco', 'guiara', 'coypu', 'degu', 'coruro', 'mole-rat', 'jerboa', 'hamster', 'vole', 'akodont', 'lemming', 'colilargo', 'muskrat', 'hocicudo', 'tapecua', 'ammodile', 'gerbil', 'antsangy', 'dormouse', 'zokor', 'spalax', 'flying squirrel', 'prairie dog', 'marmot']),
+
+    new Order('Scandentia',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['treeshrew']),
+
+    new Order('Sirenia',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['dugong', 'manatee']),
+
+    new Order('Tubulidentata',
+    'desc',
+    'pic_name',
+    'pic_file',
+    'pic_attr',
+    ['aardvark'])
+]
+
+const num_orders =order_list.length; //update this!
