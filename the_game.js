@@ -40,6 +40,8 @@ function submit_input(){
 
             message_div.innerHTML = `<span class="tbg">New Order found!</span>`;
 
+            set_pic(order);
+
             if (number_found >= num_orders){
                 end_game()
             }
@@ -51,6 +53,8 @@ function submit_input(){
             order_div.innerHTML = order_div.innerHTML + `<span class="tbg">,  <font color="red">${ans} (-0.25)</font></span>`
             
             message_div.innerHTML = `<span class="tbg">Oops, ${ans} is in ${order}.</span>`;
+
+            set_pic(order);
         }
         the_input.value = "";
     }
@@ -81,6 +85,13 @@ function end_game(){
     document.getElementById("show_answers_button").style.display="inline";
 }
 
+function set_pic(order){
+    //alert("About to set pic: " +order+ " " + order_to_pic[order]);
+    document.body.style.backgroundImage= "url(" + order_to_pic[order] +")";
+    //document.body.style.backgroundImage = "url(pics/Lowland_streaked tenrec.jpg)";
+    //alert(document.body.style.backgroundImage);
+}
+
 function done_clicked(){
     end_game(); 
 }
@@ -102,6 +113,18 @@ var order_to_div = {}
     "b": "letter",
     "c": "letter"
 }*/
+
+order_to_pic={
+    "Afrosoricida":'pics/Lowland_streaked_tenrec.jpg',
+    "Macroscelidea":"pics/Black_and_Rufous_Elephant_Shrew.jpg",
+    "Artiodactyla":'pics/Okapi.jpg'
+
+}
+order_to_pic_attr={
+    "Afrosoricida":'By <a rel="nofollow" class="external text" href="https://www.flickr.com/people/42244964@N03">Frank Vassen</a> - <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a>: <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/42244964@N03/4315247601">Lowland Streaked Tenrec, Mantadia, Madagascar</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=14465335">Link</a>',
+    "Macroscelidea":'By Joey Makalintal from Pennsylvania, USA - A Fascinating One, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=5817138',
+    "Artiodactyla":'By Daniel Jolivet - <a rel="nofollow" class="external free" href="https://www.flickr.com/photos/sybarite48/7973333500/">https://www.flickr.com/photos/sybarite48/7973333500/</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=65399174">Link</a>'
+}
 
 names_to_order={ 
     "tenrec": "Afrosoricida",
