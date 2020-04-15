@@ -9,7 +9,7 @@ function submit_input(){
     if (game_over) return;
 
     var the_input = document.getElementById("the_input");
-    var message_div = document.getElementById("message_div");
+    //var message_div = document.getElementById("message_div");
     var ans = the_input.value;
     
 
@@ -17,7 +17,7 @@ function submit_input(){
 
     if (used.has(ans))
     {
-        message_div.innerHTML = `<span class="tbg"> You have already entered that: Order ${names_to_order[ans]}</span>`;
+        //message_div.innerHTML = `<span class="tbg"> You have already entered that: Order ${names_to_order[ans]}</span>`;
         the_input.value = "";
         the_input.focus;
         return;
@@ -32,15 +32,22 @@ function submit_input(){
             score = score + 1;
             number_found = number_found+1;
             updateScore();
-
-            /*
             var order_div = document.createElement("p");
+            /*
+            
             order_div.innerHTML = `<span class="tbg"> <div class="tooltip"><b>${number_found}. ${order.name}: </b><span class="tooltiptext"> ${order.descr}</span></div> <font color="green"> ${ans} (+1)</font></span>`;
             */
-            var order_div = document.createElement("div");
-            alert("hi")
+            /*var order_div = document.createElement("div");
             order_div.classList = "swiper-slide";
-            order_div.innerHTML = `
+            order_div.innerHTML = `<div class="card">
+            <img class="card-image" src="pics/elephant_shrew.jpg" alt="alternative">
+            <div class="card-body">
+                <p class="testimonial-text">I just finished my trial period and was so amazed with the support and results that I purchased Leno.</p>
+                <p class="testimonial-author">${order.name} - Designer</p>
+            </div>
+        </div>`;*/
+
+            /*order_div.innerHTML = `
 <div class="card">
     <img class="card-image" src="pics/${order.pic_file}" alt="alternative">
     <div class="card-body">
@@ -48,13 +55,26 @@ function submit_input(){
         <p class="testimonial-text">${order.descr}</p>
         <p class="testimonial-author">${ans}</p>
     </div>
-</div>`
+</div>`*/
 
             var results_div = document.getElementById("results_div");
-            results_div.prepend(order_div);
+            results_div.innerHTML =  results_div.innerHTML + `
+            <div class="swiper-slide">
+                <div class="card">
+                    <img class="card-image" src="pics/${order.pic_file}" alt="alternative">
+                    <div class="card-body">
+                        <p class="testimonial-text">${order.descr}</p>
+                        <p class="testimonial-author">${order.name}</p>
+                    </div>
+                </div>
+            </div>
+            `
+            results_div.style.width = "99%";
+            results_div.style.disply = "100%";
+            //results_div.appendChild(order_div);
             order_to_div[order.name] = order_div;
 
-            message_div.innerHTML = `<span class="tbg">New Order found!</span>`;
+            //message_div.innerHTML = `<span class="tbg">New Order found!</span>`;
 
             set_pic(order);
 
@@ -102,11 +122,11 @@ function end_game(){
 }
 
 function set_pic(order){
-    //alert("About to set pic: " +order+ " " + order_to_pic[order]);
-    document.body.style.backgroundImage= "url(pics/" + order.pic_file +")";
-    //document.body.style.backgroundImage = "url(pics/Lowland_streaked tenrec.jpg)";
-    //alert(document.body.style.backgroundImage);
-    document.getElementById("image_credit_div").innerHTML = `<span class="tbg"> Image Credit: ${order.pic_name}, ${order.pic_attr}</span>`;
+
+    //document.body.style.backgroundImage= "url(pics/" + order.pic_file +")";
+    document.getElementById("animal_image").src = "pics/" + order.pic_file;
+
+    //document.getElementById("image_credit_div").innerHTML = `<span class="tbg"> Image Credit: ${order.pic_name}, ${order.pic_attr}</span>`;
 }
 
 function done_clicked(){
