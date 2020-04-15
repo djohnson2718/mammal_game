@@ -32,8 +32,24 @@ function submit_input(){
             score = score + 1;
             number_found = number_found+1;
             updateScore();
+
+            /*
             var order_div = document.createElement("p");
             order_div.innerHTML = `<span class="tbg"> <div class="tooltip"><b>${number_found}. ${order.name}: </b><span class="tooltiptext"> ${order.descr}</span></div> <font color="green"> ${ans} (+1)</font></span>`;
+            */
+            var order_div = document.createElement("div");
+            alert("hi")
+            order_div.classList = "swiper-slide";
+            order_div.innerHTML = `
+<div class="card">
+    <img class="card-image" src="pics/${order.pic_file}" alt="alternative">
+    <div class="card-body">
+        <h3>${order.name}</h3>
+        <p class="testimonial-text">${order.descr}</p>
+        <p class="testimonial-author">${ans}</p>
+    </div>
+</div>`
+
             var results_div = document.getElementById("results_div");
             results_div.prepend(order_div);
             order_to_div[order.name] = order_div;
