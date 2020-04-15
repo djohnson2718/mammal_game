@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mammal Quiz</title>
+</head>
+
+<style>
+    body {
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+    .tbg{
+        background-color: rgba(235, 232, 226, 0.7);  
+    }
+
+    .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
+
+
+<body>
+
+<script src="the_game.js"> </script>
+
+<div id="rules_div">
+<h1> <span class="tbg">How many mammal orders do you know?</span> </h1>
+<p><span class=tbg>The taxonomy of mammals is constantly being revaluated as research continues, but in 2020 Wikipedia listed 28 orders of mammals.</span></p>
+
+<h2><span class=tbg>The rules</span></h2>
+<p><span class=tbg>Type the name of any mammal. Press Enter or click submit. If it is from an Order you haven't found yet, you get 1 point! If it is from an Order you've already used, you get a small penalty of 0.2 points. If the animal is not in the database, there is no penalty. When you can't think of any more, click "I'm done" to finalize your score and get the option to see the answers.</span></p>
+
+<p><span class=tbg> Hover over an order name to get a short decription.</span></p>
+
+</div>
+
+<div id="input_div">
+    <input type="text" id="the_input" onkeyup="input_keyup(event)" value="elephant shrew"/>
+    <button id="input_button" onclick="submit_input()">Submit Answer</button>
+    <button id="done_button" onclick="done_clicked()">I'm done!</button>
+    <button id="show_answers_button" onclick="show_answers()" style="display: none;">Show answers</button>
+    <p id="score_p"> <span class="tbg"> Score: 0 </span></p>
+</div>
+
+<div id="message_div">
+
+</div>
+
+
+
+<div id="results_div">
+
+</div>
+
+<footer>    
+    <div id="image_credit_div">
+
+    </div>
+</footer>
+
+</body>
+</html>
