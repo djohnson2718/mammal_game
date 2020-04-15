@@ -48,7 +48,7 @@ function submit_input(){
                     <div class="text-wrapper">
                         <h4 class="card-title"><img class="circle_pic"  src="pics/${order.pic_file}" alt="alternative" onclick="set_pic_str('${order.name}')"> ${order.name}</h4>
                         <p>${order.descr}</p>
-                        <p>${ans} (+1)</p>
+                        <p id="${order.name}_answers">${ans} (+1)</p>
                     </div>
                 </div>
             </div>
@@ -67,8 +67,10 @@ function submit_input(){
         else{
             score = score - penalty
             updateScore()
-            var order_div = order_to_div[order.name]
-            order_div.innerHTML = order_div.innerHTML + `<span class="tbg">,  <font color="red">${ans} (-0.25)</font></span>`
+            //var order_div = order_to_div[order.name]
+            //order_div.innerHTML = order_div.innerHTML + `<span class="tbg">,  <font color="red">${ans} (-0.25)</font></span>`
+            answer_div = document.getElementById(order.name+"_answers");
+            answer_div.innerHTML = answer_div.innerHTML + `<font color="red">${ans} (-0.25)</font>`;
             
             message_div.innerHTML = `<span class="tbg">Oops, ${ans} is in ${order.name}.</span>`;
 
