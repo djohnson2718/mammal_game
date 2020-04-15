@@ -46,7 +46,7 @@ function submit_input(){
             <div  class="card left-pane">
                 <div class="card-body">
                     <div class="text-wrapper">
-                        <h4 class="card-title"><img class="circle_pic"  src="pics/${order.pic_file}" alt="alternative"> ${order.name}</h4>
+                        <h4 class="card-title"><img class="circle_pic"  src="pics/${order.pic_file}" alt="alternative" onclick="set_pic_str('${order.name}')"> ${order.name}</h4>
                         <p>${order.descr}</p>
                         <p>${ans} (+1)</p>
                     </div>
@@ -108,7 +108,11 @@ function set_pic(order){
     //document.body.style.backgroundImage= "url(pics/" + order.pic_file +")";
     document.getElementById("animal_image").src = "pics/" + order.pic_file;
 
-    //document.getElementById("image_credit_div").innerHTML = `<span class="tbg"> Image Credit: ${order.pic_name}, ${order.pic_attr}</span>`;
+    document.getElementById("image_credit_div").innerHTML = `<p>${order.pic_name}</p> <p> ${order.pic_attr}</p>`;
+}
+
+function set_pic_str(order_name){
+    set_pic(names_to_order[order_name])
 }
 
 function done_clicked(){
@@ -135,6 +139,7 @@ class Order {
         for (index = 0; index < members.length; ++index){
             names_to_order[members[index]] = this;
         }
+        names_to_order[name] = this;
     }
 }
 

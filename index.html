@@ -59,50 +59,28 @@
         <!-- Text Logo - Use this if you don't have a graphic logo -->
         <a class="navbar-brand logo-text page-scroll" href="index.html" id="score_p">Score: 0</a>
         
-        <a class="btn-solid-lg page-scroll" onclick="submit_input()">Submit</a>
+        <a class="btn-solid-lg" onclick="submit_input()">Submit</a>
         <input type=text class="my_input" id="the_input" onkeyup="input_keyup(event)" value="elephant shrew"></input>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
+                    <a class="nav-link page-scroll" href="#header">RULES <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#features">FEATURES</a>
+                    <a class="nav-link page-scroll" href="#orders_found">ORDERS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#preview">PREVIEW</a>
+                    <a class="nav-link page-scroll" href="#animal_image">PICTURE</a>
                 </li>
 
-                <!-- Dropdown Menu -->          
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-scroll" href="#details" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">DETAILS</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">TERMS CONDITIONS</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">PRIVACY POLICY</span></a>
-                    </div>
-                </li>
-                <!-- end of dropdown menu -->
+
 
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#contact">CONTACT</a>
+                    <a class="nav-link page-scroll" href="#footer">CREDITS</a>
                 </li>
             </ul>
-            <span class="nav-item social-icons">
-                <span class="fa-stack">
-                    <a href="#your-link">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-facebook-f fa-stack-1x"></i>
-                    </a>
-                </span>
-                <span class="fa-stack">
-                    <a href="#your-link">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-twitter fa-stack-1x"></i>
-                    </a>
-                </span>
-            </span>
+            
         </div>
     </nav> <!-- end of navbar -->
     <!-- end of navbar -->
@@ -135,7 +113,7 @@
     
 
     <!-- Features -->
-    <div id="features" class="tabs">
+    <div id="orders_found" class="tabs">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -149,33 +127,13 @@
                                 
                                 <!-- Icon Cards Pane -->
                                 <div id="result_column0" class="col-lg-4">
-
-                                    <div  class="card left-pane">
-                                        <div class="card-body">
-                                            
-                                            <div class="text-wrapper">
-                                                <h4 class="card-title"><img class="circle_pic"  src="pics/elephant_shrew.jpg" alt="alternative"> Goal Setting</h4>
-                                                <p>Like any self improving process, everything starts with setting your goals and committing to them</p>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
                                     
                                 </div>
                                 <!-- end of icon cards pane -->
 
                                 <!-- Image Pane -->
                                 <div id="result_column1" class="col-lg-4">
-                                    <div  class="card left-pane first">
-                                        <div class="card-body">
-                                            
-                                            <div class="text-wrapper">
-                                                <h4 class="card-title"><img class="circle_pic"  src="pics/elephant_shrew.jpg" alt="alternative"> Goal Setting</h4>
-                                                <p>Like any self improving process, everything starts with setting your goals and committing to them</p>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <!-- end of image pane -->
                                 
@@ -199,13 +157,13 @@
     
 
     <!-- Footer -->
-    <div class="footer">
+    <div class="footer" id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <div class="footer-col">
                         <h4>Current Animal image:</h4>
-                        <p id="image_credit_p">We're passionate about creating the best mobile apps for personal development</p>
+                        <div id="image_credit_div"></div>
                     </div>
                 </div> <!-- end of col -->
                 <div class="col-md-4">
@@ -242,15 +200,26 @@
     
     	
     <!-- Scripts -->
+
+    <!-- doesn' load without this one-->
     <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+
+    <!--<script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+    
+    <!--keep this one, it makes the menus highlight as you scroll.-->
     <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+
     <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
-    <script src="js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
-    <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+
+    <!--<script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <!--<script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <!--<script src="js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
+    <!--<script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+
+    <!--doesn't load without this one-->
     <script src="js/scripts.js"></script> <!-- Custom scripts -->
+
+    
     <script src="the_game.js"></script>
 </body>
 </html>

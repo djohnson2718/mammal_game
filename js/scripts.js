@@ -49,7 +49,7 @@
     });
 
 
-    /* Rotating Text - Morphtext */
+    /* Rotating Text - Morphtext 
 	$("#js-rotating").Morphext({
 		// The [in] animation type. Refer to Animate.css for a list of available animations.
 		animation: "fadeIn",
@@ -60,10 +60,10 @@
 		complete: function () {
 			// Called after the entrance animation is executed.
 		}
-    });
+    }); */
     
 
-    /* Card Slider - Swiper */
+    /* Card Slider - Swiper 
 	var cardSlider = new Swiper('.card-slider', {
 		autoplay: {
             delay: 4000,
@@ -87,9 +87,9 @@
             } 
         }
     });
-
+*/
     
-    /* Image Slider - Swiper */
+    /* Image Slider - Swiper 
     var imageSlider = new Swiper('.image-slider', {
         autoplay: {
             delay: 2000,
@@ -130,9 +130,9 @@
             },
         }
     });
+*/
 
-
-    /* Image Slider - Magnific Popup */
+    /* Image Slider - Magnific Popup 
 	$('.popup-link').magnificPopup({
 		removalDelay: 300,
 		type: 'image',
@@ -147,10 +147,10 @@
 		gallery:{
 			enabled:true //enable gallery mode
 		}
-    });
+    });*/
 
     
-    /* Video Lightbox - Magnific Popup */
+    /* Video Lightbox - Magnific Popup 
     $('.popup-youtube, .popup-vimeo').magnificPopup({
         disableOn: 700,
         type: 'iframe',
@@ -172,7 +172,7 @@
                 vimeo: {
                     index: 'vimeo.com/', 
                     id: function(url) {        
-                        var m = url.match(/(https?:\/\/)?(www.)?(player.)?vimeo.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/);
+                        var m = url.match(/(https?:\/\/)?(www.)?(player.)?vimeo.com\/([a-z]*\/)*([0-9]{6,11})[?]?.);
                         if ( !m || !m[5] ) return null;
                         return m[5];
                     },
@@ -180,14 +180,14 @@
                 }
             }
         }
-    });
+    });*/ 
 
 
-    /* Lightbox - Magnific Popup */
+    /* Lightbox - Magnific Popup 
 	$('.popup-with-move-anim').magnificPopup({
 		type: 'inline',
 		fixedContentPos: false, /* keep it false to avoid html tag shift with margin-right: 17px */
-		fixedBgPos: true,
+	/*	fixedBgPos: true,
 		overflowY: 'auto',
 		closeBtnInside: true,
 		preloader: false,
@@ -195,7 +195,7 @@
 		removalDelay: 300,
 		mainClass: 'my-mfp-slide-bottom'
 	});
-    
+    */
 
     /* Counter - CountTo */
 	var a = 0;
@@ -240,7 +240,7 @@
     });
 
 
-    /* Contact Form */
+    /* Contact Form 
     $("#contactForm").validator().on("submit", function(event) {
     	if (event.isDefaultPrevented()) {
             // handle the invalid form...
@@ -294,10 +294,11 @@
             var msgClasses = "h3 text-center";
         }
         $("#cmsgSubmit").removeClass().addClass(msgClasses).text(msg);
-    }
+    }*/
 
 
     /* Privacy Form */
+    /*
     $("#privacyForm").validator().on("submit", function(event) {
     	if (event.isDefaultPrevented()) {
             // handle the invalid form...
@@ -352,7 +353,7 @@
         }
         $("#pmsgSubmit").removeClass().addClass(msgClasses).text(msg);
     }
-    
+    */
 
     /* Back To Top Button */
     // create the back to top button
