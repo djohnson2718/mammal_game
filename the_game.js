@@ -4,6 +4,12 @@ const penalty = 0.25;
 //var had_unrec_input = false;
 var game_over = false;
 
+var results_cols= {
+    0 : document.getElementById("result_column0"),
+    1 : document.getElementById("result_column1"),
+    2 : document.getElementById("result_column2")
+}
+
 
 function submit_input(){
     if (game_over) return;
@@ -33,45 +39,21 @@ function submit_input(){
             number_found = number_found+1;
             updateScore();
             var order_div = document.createElement("p");
-            /*
             
-            order_div.innerHTML = `<span class="tbg"> <div class="tooltip"><b>${number_found}. ${order.name}: </b><span class="tooltiptext"> ${order.descr}</span></div> <font color="green"> ${ans} (+1)</font></span>`;
-            */
-            /*var order_div = document.createElement("div");
-            order_div.classList = "swiper-slide";
-            order_div.innerHTML = `<div class="card">
-            <img class="card-image" src="pics/elephant_shrew.jpg" alt="alternative">
-            <div class="card-body">
-                <p class="testimonial-text">I just finished my trial period and was so amazed with the support and results that I purchased Leno.</p>
-                <p class="testimonial-author">${order.name} - Designer</p>
-            </div>
-        </div>`;*/
-
-            /*order_div.innerHTML = `
-<div class="card">
-    <img class="card-image" src="pics/${order.pic_file}" alt="alternative">
-    <div class="card-body">
-        <h3>${order.name}</h3>
-        <p class="testimonial-text">${order.descr}</p>
-        <p class="testimonial-author">${ans}</p>
-    </div>
-</div>`*/
-
-            var results_div = document.getElementById("results_div");
+            var col_num = (number_found - 1) % 3;
+            var results_div = results_cols[col_num];
             results_div.innerHTML =  results_div.innerHTML + `
-            <div class="swiper-slide">
-                <div class="card">
-                    <img class="card-image" src="pics/${order.pic_file}" alt="alternative">
-                    <div class="card-body">
-                        <p class="testimonial-text">${order.descr}</p>
-                        <p class="testimonial-author">${order.name}</p>
+            <div  class="card left-pane">
+                <div class="card-body">
+                    <div class="text-wrapper">
+                        <h4 class="card-title"><img class="circle_pic"  src="pics/${order.pic_file}" alt="alternative"> ${order.name}</h4>
+                        <p>${order.descr}</p>
+                        <p>${ans} (+1)</p>
                     </div>
                 </div>
             </div>
             `
-            results_div.style.width = "99%";
-            results_div.style.disply = "100%";
-            //results_div.appendChild(order_div);
+
             order_to_div[order.name] = order_div;
 
             //message_div.innerHTML = `<span class="tbg">New Order found!</span>`;
