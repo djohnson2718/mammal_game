@@ -70,7 +70,7 @@ function submit_input(){
             //var order_div = order_to_div[order.name]
             //order_div.innerHTML = order_div.innerHTML + `<span class="tbg">,  <font color="red">${ans} (-0.25)</font></span>`
             answer_div = document.getElementById(order.name+"_answers");
-            answer_div.innerHTML = answer_div.innerHTML + `<font color="red">${ans} (-0.25)</font>`;
+            answer_div.innerHTML = answer_div.innerHTML + `, <font color="red">${ans} (-0.25)</font>`;
             
             message_div.innerHTML = `<span class="tbg">Oops, ${ans} is in ${order.name}.</span>`;
 
@@ -122,12 +122,26 @@ function done_clicked(){
 }
 
 function show_answers(){
-    //TODO
+    var i;
+    var orders_printed = orders_found;
+    for (i=0;i < order_list.length;++i){
+        order = order_list[i];
+        var member_list_p;
+        if (order in orders_found){
+            member_list_p = document.getElementById(order.name + "_answers");
+        }
+        else{
+            var col_num = orders_printed % 3;
+            
+        }
+    }
 }
 
-var used = new Set()
-var order_to_div = {}
-var names_to_order = {}
+var used = new Set();
+
+var orders_found = new Set();
+
+var names_to_order = {};
 
 class Order {
     constructor(name, descr, pic_name, pic_file, pic_attr, members){
