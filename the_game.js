@@ -154,7 +154,7 @@ function show_answers(){
         order = order_list[i];
         var member_list_p;
         var first_answer;
-        if (order.name in orders_found){
+        if (orders_found.has(order.name)){
             member_list_p = document.getElementById(order.name + "_answers");
             first_answer = false;
         }
