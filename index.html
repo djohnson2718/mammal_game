@@ -7,6 +7,12 @@
     width: 75px;
     height: 75px;
 }
+
+.Fixed
+{
+    position: fixed;
+    top: 100px;
+}
 </style>
 
 <head>
@@ -37,11 +43,25 @@
     <link href="css/swiper.css" rel="stylesheet">
 	<link href="css/magnific-popup.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
-	
+    
+    
+<style>
+
+.alert {
+  margin-bottom: 1px;
+  height: 30px;
+  line-height:30px;
+  padding:0px 15px;
+}
+</style>
 	<!-- Favicon  
     <link rel="icon" href="images/favicon.png">-->
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
+
+    
+
+    <!--<div class="alert alert-success Fixed"> test fixed</div> -->
     
     <!-- Preloader -->
 	<div class="spinner-wrapper">
@@ -57,10 +77,22 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
         <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <a class="navbar-brand logo-text page-scroll" href="index.html" id="score_p">Score: 0</a>
+        <a class="navbar-brand logo-text" href="index.html" id="score_p">Score: 0</a> <!--need to fix this!!!-->
         
         <a class="btn-solid-lg" onclick="submit_input()">Submit</a>
         <input type=text class="my_input" id="the_input" onkeyup="input_keyup(event)" value="elephant shrew"></input>
+        <div id="new_found" class="alert alert-success">
+            New order found!
+        </div>
+        <div id="repeat" class="alert alert-danger">
+            Oops! ...
+        </div>
+        <div id="game_over" class="alert alert-success">
+            Game over! Nice score!
+        </div>
+        <div id="not_found" class="alert alert-info">
+            Input not found in database.
+        </div>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
@@ -85,6 +117,7 @@
     </nav> <!-- end of navbar -->
     <!-- end of navbar -->
 
+    
 
     <!-- Header -->
     <header id="header" class="header">
@@ -92,6 +125,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
+                        
                         <div class="text-container">
                             <h1>How many mammal orders do you know?</h1>
                             <p class="p-large"> Type the name of any mammal. Press Enter or click submit. If it is from an Order you haven't found yet, you get 1 point! If it is from an Order you've already used, you get a small penalty of 0.2 points. If the animal is not in the database, there is no penalty. When you can't think of any more, click "I'm done" to finalize your score and get the option to see the answers.</span></p>
@@ -148,6 +182,11 @@
                     
 
             </div> <!-- end of row --> 
+            <div class="row">
+                <div class="col-lg-12">
+                    <a class="btn-solid-lg" onclick="end_game()">Done!</a>
+                </div>
+            </div>
         </div> <!-- end of container --> 
     </div> <!-- end of tabs -->
     <!-- end of features -->

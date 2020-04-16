@@ -279,7 +279,7 @@ a.white {
 /* I added this... */
 .my_input{
 	display: block; /* needed for proper display of the label in Firefox, IE, Edge */
-	width: 100%;
+	width: 200px;
 	border: 1px solid #9791ae;
 	border-radius: 0.25rem;
 	background-color: #413d52;

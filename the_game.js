@@ -11,16 +11,18 @@ var results_cols= {
 }
 
 
+
+$(document).ready(function() {
+    $(".alert").hide();
+});
+
 function submit_input(){
+
     if (game_over) return;
 
     var the_input = document.getElementById("the_input");
     //var message_div = document.getElementById("message_div");
     var ans = the_input.value;
-    
-
-    
-
     if (used.has(ans))
     {
         //message_div.innerHTML = `<span class="tbg"> You have already entered that: Order ${names_to_order[ans]}</span>`;
@@ -31,15 +33,22 @@ function submit_input(){
     //var para = document.createElement("p");
 
     if (ans in names_to_order){
+        
+
         used.add(ans);
         var order = names_to_order[ans];
-        if (!(order.name in order_to_div)){
+        if (! orders_found.has(order.name)){
             //order_to_done[order] = true
+            document.getElementById("new_found").innerHTML = `New Order found: ${order.name}.`;
+            $("#new_found").fadeTo(2000, 500).slideUp(500, function(){
+                $("#new_found").slideUp(500);
+            });
             score = score + 1;
-            number_found = number_found+1;
+            number_found++;
             updateScore();
-            var order_div = document.createElement("p");
-            
+            //var order_div = document.createElement("p");
+            orders_found.add(order.name);
+
             var col_num = (number_found - 1) % 3;
             var results_div = results_cols[col_num];
             results_div.innerHTML =  results_div.innerHTML + `
@@ -47,14 +56,14 @@ function submit_input(){
                 <div class="card-body">
                     <div class="text-wrapper">
                         <h4 class="card-title"><img class="circle_pic"  src="pics/${order.pic_file}" alt="alternative" onclick="set_pic_str('${order.name}')"> ${order.name}</h4>
-                        <p>${order.descr}</p>
-                        <p id="${order.name}_answers">${ans} (+1)</p>
+                        <p><i>${order.descr}</i></p>
+                        <p id="${order.name}_answers"><span style="color:rgb(72, 252, 35)">${ans} (+1)</span></p>
                     </div>
                 </div>
             </div>
             `
 
-            order_to_div[order.name] = order_div;
+            //order_to_div[order.name] = order_div;
 
             //message_div.innerHTML = `<span class="tbg">New Order found!</span>`;
 
@@ -70,9 +79,16 @@ function submit_input(){
             //var order_div = order_to_div[order.name]
             //order_div.innerHTML = order_div.innerHTML + `<span class="tbg">,  <font color="red">${ans} (-0.25)</font></span>`
             answer_div = document.getElementById(order.name+"_answers");
-            answer_div.innerHTML = answer_div.innerHTML + `, <font color="red">${ans} (-0.25)</font>`;
+            answer_div.innerHTML = answer_div.innerHTML + `, <span style="color:red">${ans} (-0.25)</span>`;
             
-            message_div.innerHTML = `<span class="tbg">Oops, ${ans} is in ${order.name}.</span>`;
+            repeat_alert = document.getElementById("repeat");
+
+            repeat_alert.innerHTML = `Oops, ${ans} is in ${order.name}.`;
+
+            $("#repeat").fadeTo(2000, 500).slideUp(500, function(){
+                $("#repeat").slideUp(500);
+            });
+            //message_div.innerHTML = `<span class="tbg">Oops, ${ans} is in ${order.name}.</span>`;
 
             set_pic(order);
         }
@@ -97,12 +113,13 @@ function updateScore(){
 }
 
 function end_game(){
-    game_over = true
-    var message_div = document.getElementById("message_div");
-    message_div.innerHTML = `<span class="tbg">Game over!</span>`;
+    game_over = true;
+    //var message_div = document.getElementById("message_div");
+    //message_div.innerHTML = `<span class="tbg">Game over!</span>`;
 
-    document.getElementById("done_button").disabled = "true";
-    document.getElementById("show_answers_button").style.display="inline";
+    //document.getElementById("done_button").disabled = "true";
+    //document.getElementById("show_answers_button").style.display="inline";
+    show_answers();
 }
 
 function set_pic(order){
@@ -117,22 +134,47 @@ function set_pic_str(order_name){
     set_pic(names_to_order[order_name])
 }
 
-function done_clicked(){
-    end_game(); 
-}
 
 function show_answers(){
     var i;
-    var orders_printed = orders_found;
+    var orders_printed = number_found;
     for (i=0;i < order_list.length;++i){
         order = order_list[i];
         var member_list_p;
-        if (order in orders_found){
+        var first_answer;
+        if (order.name in orders_found){
             member_list_p = document.getElementById(order.name + "_answers");
+            first_answer = false;
         }
         else{
             var col_num = orders_printed % 3;
-            
+            results_cols[col_num].innerHTML += `
+            <div  class="card left-pane">
+                <div class="card-body">
+                    <div class="text-wrapper">
+                        <h4 class="card-title"><img class="circle_pic"  src="pics/${order.pic_file}" alt="alternative" onclick="set_pic_str('${order.name}')">
+                         <span style="color:yellow">${order.name}</span> </h4>
+                        <p><i>${order.descr}</i></p>
+                        <p id="${order.name}_answers"></p>
+                    </div>
+                </div>
+            </div>
+            `;
+            first_answer = true;
+            orders_printed++;
+        }
+        var member_list_p = document.getElementById(order.name + "_answers");
+        var k;
+        for (k=0; k < order.members.length; ++k){
+            if (! used.has(order.members[k])){
+                if (first_answer){
+                    member_list_p.innerHTML = order.members[k];
+                    first_answer = false;
+                }
+                else{
+                    member_list_p.innerHTML += `, ${order.members[k]}`;
+                }
+            }
         }
     }
 }
@@ -304,7 +346,7 @@ order_list = [
     new Order('Pholidota',
     'Pangolins: the only mammals with scales.',
     'Giant pangolin',
-    'pangolin.jgp',
+    'pangolin.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Manis_gigantea_01_by_Line1.JPG" title="via Wikimedia Commons">Liné1</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA</a>',
     ['pangolin']),
 
