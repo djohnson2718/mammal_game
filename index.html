@@ -77,10 +77,10 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
         <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <a class="navbar-brand logo-text" href="index.html" id="score_p">Score: 0</a> <!--need to fix this!!!-->
         
-        <a class="btn-solid-lg" onclick="submit_input()">Submit</a>
         <input type=text class="my_input" id="the_input" onkeyup="input_keyup(event)" value="elephant shrew"></input>
+        <a class="btn-solid-lg" onclick="submit_input()" style="margin-right:10px;">Submit</a>
+        <a class="navbar-brand logo-text" id="score_p">Score: 0</a> <!--need to fix this!!!-->
         <div id="new_found" class="alert alert-success">
             New order found!
         </div>

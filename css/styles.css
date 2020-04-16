@@ -287,6 +287,7 @@ a.white {
 	font: 400 0.875rem/1.875rem "Open Sans", sans-serif;
 	transition: all 0.2s;
 	-webkit-appearance: none; /* removes inner shadow on form inputs on ios safari */
+	margin-right: 10px;
 }
 
 .form-control-select {

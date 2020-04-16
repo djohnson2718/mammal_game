@@ -66,6 +66,11 @@ function submit_input(){
             //order_to_div[order.name] = order_div;
 
             //message_div.innerHTML = `<span class="tbg">New Order found!</span>`;
+         
+            if (window.scrollY < $("#orders_found").offset().top ){
+                document.getElementById("orders_found").scrollIntoView();
+            }
+            //results_div.scrollIntoView();
 
             set_pic(order);
 
