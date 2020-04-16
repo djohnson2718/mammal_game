@@ -95,7 +95,9 @@ function submit_input(){
         the_input.value = "";
     }
     else{
-        message_div.innerHTML =  `<span class="tbg">Input not recognized.</span>`;
+        $("#not_found").fadeTo(2000, 500).slideUp(500, function(){
+            $("#not_found").slideUp(500);
+        });
     }
 
 
@@ -113,13 +115,18 @@ function updateScore(){
 }
 
 function end_game(){
-    game_over = true;
-    //var message_div = document.getElementById("message_div");
-    //message_div.innerHTML = `<span class="tbg">Game over!</span>`;
+    if (!game_over){
+        game_over = true;
 
-    //document.getElementById("done_button").disabled = "true";
-    //document.getElementById("show_answers_button").style.display="inline";
-    show_answers();
+        //var message_div = document.getElementById("message_div");
+        //message_div.innerHTML = `<span class="tbg">Game over!</span>`;
+        $("#game_over").fadeTo(2000, 500).slideUp(500, function(){
+            $("#game_over").slideUp(500);
+        });
+        //document.getElementById("done_button").disabled = "true";
+        //document.getElementById("show_answers_button").style.display="inline";
+        show_answers();
+    }
 }
 
 function set_pic(order){
