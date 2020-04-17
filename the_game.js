@@ -143,7 +143,8 @@ function set_pic(order){
 }
 
 function set_pic_str(order_name){
-    set_pic(names_to_order[order_name])
+    set_pic(names_to_order[order_name]);
+    document.getElementById("done_button").scrollIntoView();
 }
 
 

@@ -7,6 +7,7 @@
     width: 75px;
     height: 75px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .Fixed
@@ -106,9 +107,6 @@
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#animal_image">PICTURE</a>
                 </li>
-
-
-
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#footer">CREDITS</a>
                 </li>
@@ -126,17 +124,25 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        
                         <div class="text-container">
-                            <h1>How many mammal orders do you know?</h1>
-                            <p class="p-large"> Type the name of any mammal. Press Enter or click submit. If it is from an Order you haven't found yet, you get 1 point! If it is from an Order you've already used, you get a small penalty of 0.2 points. If the animal is not in the database, there is no penalty. When you can't think of any more, click "I'm done" to finalize your score and get the option to see the answers.</span></p>
-                          </p>
+                            <h2>How many mammal orders do you know?</h2>
+                            <li class="p-large">Type the name of any mammal and press Enter or click submit.</li>
+                            <li class="p-large">If it is from an Order you haven't found yet, you get 1 point!</li>
+                            <li class="p-large"> If it is from an Order you've already used, you get a small penalty of 0.2 points.</li>
+                            <li class="p-large"> If the animal is not in the database, there is no penalty.</li>
+                            <li class="p-large"> When you can't think of any more, click the button to finalize your score see the answers!</li>
+                          
                         </div>
                     </div> <!-- end of col -->
                     <div class="col-lg-6">
                         <div class="text-container">
-                            <h2>TIPS</h2>
-                            <p>some tips</p>
+                            <h2>Tips</h2>
+                            <li class="p-large">The database prefers general names. For example, if this was the ampibian game, "Pyrenean brook newt" would not be in the database, but "newt" would be. </li>
+                            <li class="p-large">For your enjoyment, each order has a representative picture. It might not be the same animal you typed in.</li>
+                            <li class="p-large">You can click the small animal picture by the order name to view the picture larger. </li>
+                            <li class="p-large">If you refresh the page or naviage away, you will probaly lose your progress.</li>
+                            <li class="p-large">You've probably heard of animals from at least ?? of the orders.</li>
+                            <li class="p-large">To get you started, I filled "monita del monte" into the input box for you! </li>
                         </div> <!-- end of image-container -->
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
@@ -150,10 +156,10 @@
     <!-- Features -->
     <div id="orders_found" class="tabs">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
+            <div style="text-align: center;">
+                
                     <h3>Orders found so far </h3>
-                </div> <!-- end of col -->
+                
             </div> <!-- end of row -->
             <div class="row">
   
@@ -184,11 +190,11 @@
 
             </div> <!-- end of row --> 
             <div style="text-align: right;">
-                <a id="done_button" class="btn-solid-lg" onclick="end_game()">I can't think of more, show the answers!</a>
+                <a id="done_button" class="btn-solid-lg" onclick="end_game()" style="margin-bottom: 20px;">I can't think of more, show the answers!</a>
             </div>
         </div> <!-- end of container --> 
         <div style="text-align: center;">
-            <image id="animal_image" width="auto" style="max-height:500px;" ></image>
+            <image id="animal_image" width="auto" style="max-height:600px;" ></image>
         </div>
     </div> <!-- end of tabs -->
     <!-- end of features -->
