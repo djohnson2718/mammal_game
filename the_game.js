@@ -259,14 +259,14 @@ order_list = [
     ['whale', 'dolphin', 'narwhal', 'beluga', 'porpoise','orca']),
 
     new Order('Chiroptera',
-    'Bats.',
+    'The second largest order of mammals after rodents, bats comprise about 20% of all classified mammal species.',
     'Carollia brevicauda',
     'bat.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Carollia_brevicauda.jpg" title="via Wikimedia Commons">Diego Lizcano</a> / <a href="https://creativecommons.org/licenses/by/2.0">CC BY</a>',
     ['bat', 'flying fox']),
 
     new Order('Cingulata',
-    'Armadillos.',
+    'A species of two ton armadillo became extinct at the end of the last ice age.',
     'Pink fairy armadillo.',
     'arm.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Chlamyphorus_truncatus_-_Naturmuseum_Senckenberg_-_DSC02081.JPG" title="via Wikimedia Commons">Daderot</a> / CC0',
@@ -280,7 +280,7 @@ order_list = [
     ['marsupial mice', 'pouched mice', 'mulgara', 'kaluta', 'kowari', 'quoll', 'dasyure', 'ningauis', 'dibbler', 'phascogales', 'wambenger', 'marsupial shrew', 'planigale', 'tasmanian devil', 'dunnart', 'numbat']),
 
     new Order('Dermoptera',
-    'Cololgos (flying lemurs).',
+    "Cololgos, also called flying lemurs, aren't lemurs and glide rather than fly.",
     'Colugo',
     'colugo.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Colugo_(Galeopterus_variegatus,_adult_female),_Central_Catchment_Area,_Singapore_-_20060618.jpg" title="via Wikimedia Commons">Lip Kee Yap.</a> / <a href="https://creativecommons.org/licenses/by-sa/2.0">CC BY-SA</a>',
@@ -308,7 +308,7 @@ order_list = [
     ['hedgehog', 'moonrat', 'gymnure', 'shrew', 'mole', 'desman', 'solenodon']),
 
     new Order('Hyracoidea',
-    'Hyraxes',
+    'Hyraxes are superficially similar to pikas and marmots, but are more closely related to elephants and manatees.',
     "Beecroft's Tree Hyrax",
     'tree_hyrax.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Beecroft%27sTreeHyrax.JPG" title="via Wikimedia Commons">Valerius Tygart</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA</a>',
@@ -322,7 +322,7 @@ order_list = [
     ['rabbit', 'hare', 'pika']),
 
     new Order("Macroscelidea",
-    "Elephant Shrews.",
+    "Elephant shrews are not classified with true shrews, but are in fact more closely related to elephants than shrews.",
     "Black and Rufous Elephant Shrew",
     "elephant_shrew.jpg",
     '<a href="https://commons.wikimedia.org/wiki/File:Rhynchocyon_petersi_from_side.jpg" title="via Wikimedia Commons">Joey Makalintal from Pennsylvania, USA</a> / <a href="https://creativecommons.org/licenses/by/2.0">CC BY</a>',
@@ -378,7 +378,7 @@ order_list = [
     ['pangolin']),
 
     new Order('Pilosa',
-    'Latin for "hairy. Includes anteaters and sloths.',
+    'Latin for "hairy". Includes anteaters and sloths.',
     'Giant anteater',
     'anteater.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Myrmecophaga_tridactyla_-Detroit_Zoo,_Michigan,_USA-8a.jpg" title="via Wikimedia Commons">Ellen from Ann Arbor, MI, USA</a> / <a href="https://creativecommons.org/licenses/by/2.0">CC BY</a>',
@@ -392,14 +392,14 @@ order_list = [
     ['monkey', 'mangabey', 'mandrill', 'baboon', 'colobus', 'langur', 'gorilla', 'human', 'chimpanzee', 'orangatan', 'gibbon', 'marmoset', 'tamarin', 'tarsier', 'lemur', 'bushbaby', 'galago', 'loris', 'potto', 'ape']),
 
     new Order('Proboscidea',
-    'Elephants!',
+    'Includes the largest land mammal: the African elephant.',
     'F_MU1, the Elephant',
     'land_of_giants.jpg',
     '<a href="http://blog.burrard-lucas.com/2019/03/elephant-queen/">Will Burrard-Lucas</a>',
     ['elephant']),
 
     new Order('Rodentia',
-    'Rodents.',
+    'About 40% of all mammal species are rodents (2,277 species).',
     'Capybara',
     'rodent.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Hydrochaeris_hydrochaeris.jpg" title="via Wikimedia Commons"Egg assumed.</a> / <a href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA</a>',
