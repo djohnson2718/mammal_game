@@ -386,7 +386,7 @@ order_list = [
 
     new Order('Primates',
     'Monkeys, apes, humans, and more.',
-    'pic_name',
+    'Golden lion tamarin',
     'tamarin.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Golden_lion_tamarin_family.jpg" title="via Wikimedia Commons">Steve from washington, dc, usa</a> / <a href="https://creativecommons.org/licenses/by-sa/2.0">CC BY-SA</a>',
     ['monkey', 'mangabey', 'mandrill', 'baboon', 'colobus', 'langur', 'gorilla', 'human', 'chimpanzee', 'orangatan', 'gibbon', 'marmoset', 'tamarin', 'tarsier', 'lemur', 'bushbaby', 'galago', 'loris', 'potto', 'ape']),
