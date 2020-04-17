@@ -388,7 +388,7 @@ order_list = [
     'Capybara',
     'rodent.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Hydrochaeris_hydrochaeris.jpg" title="via Wikimedia Commons"Egg assumed.</a> / <a href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA</a>',
-    ['capybara','squirrel', 'mouse', 'scaly-tail', 'beaver', 'gopher', 'rat', 'gundi', 'pectinator', 'guinea pig', 'cavy', 'paca', 'agouti', 'acouchi', 'chinchilla', 'pacarana', 'porcupine', 'hutia', 'tuco-tuco', 'guiara', 'coypu', 'degu', 'coruro', 'mole-rat', 'jerboa', 'hamster', 'vole', 'akodont', 'lemming', 'colilargo', 'muskrat', 'hocicudo', 'tapecua', 'ammodile', 'gerbil', 'antsangy', 'dormouse', 'zokor', 'spalax', 'flying squirrel', 'prairie dog', 'marmot']),
+    ['chipmunk','capybara','squirrel', 'mouse', 'scaly-tail', 'beaver', 'gopher', 'rat', 'gundi', 'pectinator', 'guinea pig', 'cavy', 'paca', 'agouti', 'acouchi', 'chinchilla', 'pacarana', 'porcupine', 'hutia', 'tuco-tuco', 'guiara', 'coypu', 'degu', 'coruro', 'mole-rat', 'jerboa', 'hamster', 'vole', 'akodont', 'lemming', 'colilargo', 'muskrat', 'hocicudo', 'tapecua', 'ammodile', 'gerbil', 'antsangy', 'dormouse', 'zokor', 'spalax', 'flying squirrel', 'prairie dog', 'marmot']),
 
     new Order('Scandentia',
     'In the past, various authors proposed to place treeshrews in the ordinal rank Insectivora, or considered them close relatives of primates. Since 1972, the treeshrew families are grouped in this order.',
