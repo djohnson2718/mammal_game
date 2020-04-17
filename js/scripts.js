@@ -49,7 +49,7 @@
     });
 
 
-    /* Rotating Text - Morphtext 
+    /* Rotating Text - Morphtext */
 	$("#js-rotating").Morphext({
 		// The [in] animation type. Refer to Animate.css for a list of available animations.
 		animation: "fadeIn",
@@ -60,7 +60,7 @@
 		complete: function () {
 			// Called after the entrance animation is executed.
 		}
-    }); */
+    }); 
     
 
     /* Card Slider - Swiper 
