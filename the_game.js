@@ -1,19 +1,20 @@
 var score = 0;
 var number_found = 0;
-const penalty = 0.25;
+const penalty = 0.2;
 //var had_unrec_input = false;
 var game_over = false;
 
-var results_cols= {
-    0 : document.getElementById("result_column0"),
-    1 : document.getElementById("result_column1"),
-    2 : document.getElementById("result_column2")
-}
+var results_cols;
 
 
 
 $(document).ready(function() {
     $(".alert").hide();
+    results_cols = {
+        0 : document.getElementById("result_column0"),
+        1 : document.getElementById("result_column1"),
+        2 : document.getElementById("result_column2")
+    }
 });
 
 function submit_input(){
@@ -123,11 +124,12 @@ function end_game(){
     if (!game_over){
         game_over = true;
 
+        document.getElementById("game_over").style.display="block";
         //var message_div = document.getElementById("message_div");
         //message_div.innerHTML = `<span class="tbg">Game over!</span>`;
-        $("#game_over").fadeTo(2000, 500).slideUp(500, function(){
-            $("#game_over").slideUp(500);
-        });
+        //$("#game_over").fadeTo(2000, 500).slideUp(500, function(){
+        //    $("#game_over").slideUp(500);
+        //});
         //document.getElementById("done_button").disabled = "true";
         //document.getElementById("show_answers_button").style.display="inline";
         show_answers();
