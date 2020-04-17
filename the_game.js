@@ -68,7 +68,7 @@ function submit_input(){
             <div  class="card left-pane">
                 <div class="card-body">
                     <div class="text-wrapper">
-                        <h4 class="card-title"><img class="circle_pic"  src="pics/${order.pic_file}" alt="alternative" onclick="set_pic_str('${order.name}')"> ${order.name}</h4>
+                        <h4 class="card-title"><img class="circle_pic"  src="pics/${order.pic_file}" alt="${order.pic_name}" onclick="set_pic_str('${order.name}')"> ${order.name}</h4>
                         <p><i>${order.descr}</i></p>
                         <p id="${order.name}_answers"><span style="color:rgb(72, 252, 35)">${ans} (+1)</span></p>
                     </div>
@@ -179,7 +179,7 @@ function show_answers(){
             <div  class="card left-pane">
                 <div class="card-body">
                     <div class="text-wrapper">
-                        <h4 class="card-title"><img class="circle_pic"  src="pics/${order.pic_file}" alt="alternative" onclick="set_pic_str('${order.name}')">
+                        <h4 class="card-title"><img class="circle_pic"  src="pics/${order.pic_file}" alt="${order.pic_name}" onclick="set_pic_str('${order.name}')">
                          <span style="color:yellow">${order.name}</span> </h4>
                         <p><i>${order.descr}</i></p>
                         <p id="${order.name}_answers"></p>
