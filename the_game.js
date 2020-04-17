@@ -329,7 +329,7 @@ order_list = [
     ['elephant shrew']), //12
 
     new Order('Microbiotheria',
-    'Only one extant species: the monita del monte.',
+    'Only one extant species: the monito del monte.',
     'Monito del monte',
     'monte.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Monito_del_Monte_ps6.jpg" title="via Wikimedia Commons">Jose Luis Bartheld from Valdivia, Chile</a> / <a href="https://creativecommons.org/licenses/by/2.0">CC BY</a>',
