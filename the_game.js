@@ -20,13 +20,25 @@ $(document).ready(function() {
 function submit_input(){
 
     if (game_over) return;
-
+    
     var the_input = document.getElementById("the_input");
+
+    var ans = the_input.value.trim().toLowerCase();
+
+    if (ans==="")
+        return;
+
+    $(".alert").hide();
+
     //var message_div = document.getElementById("message_div");
-    var ans = the_input.value;
+    
     if (used.has(ans))
     {
         //message_div.innerHTML = `<span class="tbg"> You have already entered that: Order ${names_to_order[ans]}</span>`;
+        $("#repeat_same").fadeTo(2000, 500).slideUp(500, function(){
+            $("#repeat_same").slideUp(500);
+        });
+
         the_input.value = "";
         the_input.focus;
         return;
@@ -85,7 +97,7 @@ function submit_input(){
             //var order_div = order_to_div[order.name]
             //order_div.innerHTML = order_div.innerHTML + `<span class="tbg">,  <font color="red">${ans} (-0.25)</font></span>`
             answer_div = document.getElementById(order.name+"_answers");
-            answer_div.innerHTML = answer_div.innerHTML + `, <span style="color:red">${ans} (-0.25)</span>`;
+            answer_div.innerHTML = answer_div.innerHTML + `, <span style="color:red">${ans} (-0.2)</span>`;
             
             repeat_alert = document.getElementById("repeat");
 
@@ -117,7 +129,7 @@ function input_keyup(e){
 
 function updateScore(){
     var score_p = document.getElementById("score_p")
-    score_p.innerHTML = `<span class="tbg">Score: ${score}</span>`
+    score_p.innerHTML = `<span class="tbg">Score: ${score.toFixed(1)}</span>`
 }
 
 function end_game(){
@@ -314,7 +326,7 @@ order_list = [
     "Black and Rufous Elephant Shrew",
     "elephant_shrew.jpg",
     '<a href="https://commons.wikimedia.org/wiki/File:Rhynchocyon_petersi_from_side.jpg" title="via Wikimedia Commons">Joey Makalintal from Pennsylvania, USA</a> / <a href="https://creativecommons.org/licenses/by/2.0">CC BY</a>',
-    ['elephant shrew']),
+    ['elephant shrew']), //12
 
     new Order('Microbiotheria',
     'Only one extant species: the monita del monte.',
@@ -349,7 +361,7 @@ order_list = [
     'Eastern Barred Bandicoot',
     'bandicoot.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Perameles_gunni.jpg" title="via Wikimedia Commons">JJ Harrison (https://www.jjharrison.com.au/)</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA</a>',
-    ['bandicoot', 'bilbie']),
+    ['bandicoot', 'bilbie']), //14??
 
     new Order('Perissodactyla',
     'Odd-toed ungulates are hoofed animals—ungulate—which bear most of their weight on one (an odd number) of the five toes.',
@@ -412,7 +424,7 @@ order_list = [
     'Aardvark',
     'aardvark.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Aardvarks.jpg" title="via Wikimedia Commons">Scotto Bear from North Beach, MD, USA</a> / <a href="https://creativecommons.org/licenses/by-sa/2.0">CC BY-SA</a>',
-    ['aardvark'])
+    ['aardvark']) //21-22
 ]
 
 const num_orders =order_list.length; //update this!
