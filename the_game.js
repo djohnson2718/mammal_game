@@ -277,7 +277,7 @@ order_list = [
     'Tasmanian Devil',
     'tasdevil.jpg',
     '<a href="https://commons.wikimedia.org/wiki/File:Tasdevil_large.jpg" title="via Wikimedia Commons">Wayne McLean ( jgritz) Taken with Nikon D100.</a> / <a href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA</a>',
-    ['marsupial mice', 'pouched mice', 'mulgara', 'kaluta', 'kowari', 'quoll', 'dasyure', 'ningauis', 'dibbler', 'phascogales', 'wambenger', 'marsupial shrew', 'planigale', 'tasmanian devil', 'dunnart', 'numbat']),
+    ['marsupial mouse', 'pouched mouse', 'mulgara', 'kaluta', 'kowari', 'quoll', 'dasyure', 'ningauis', 'dibbler', 'phascogales', 'wambenger', 'marsupial shrew', 'planigale', 'tasmanian devil', 'dunnart', 'numbat']),
 
     new Order('Dermoptera',
     "Cololgos, also called flying lemurs, aren't lemurs and glide rather than fly.",
